@@ -17,7 +17,7 @@ export default function Index() {
       })
       return
     }
-    const response = await axios.post('/api/add',
+    const response = await axios.post(`${process.env.CURRENT_URL}/api/add`,
       comprador
     );
 
