@@ -18,14 +18,17 @@ const compradorSchema = new mongoose.Schema({
   rg: {
     type: String,
   },
-  expireAt: {
-    type: Date,
-    default: moment().add(2, 'minutes').toDate(),
+  status: {
+    type: String,
   },
-})
+  // expireAt: {
+  //   type: Date,
+  //   default: moment().add(2, 'minutes').toDate(),
+  // },
+}, {timestamps: true})
 
 // Expire Documents at a Specific Clock Time
-compradorSchema.index({ expireAt: 1 }, { expireAfterSeconds: 0 })
+// compradorSchema.index({ expireAt: 1 }, { expireAfterSeconds: 0 })
 
 const Compradores = mongoose.models.Comprador || mongoose.model('Comprador', compradorSchema)
 
