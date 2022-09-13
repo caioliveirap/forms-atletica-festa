@@ -8,6 +8,7 @@ export default function Index() {
 
   const sendPayment = async (comprador) => {
 
+    Swal.showLoading()
     const validator = validate(comprador)
     if(!validator.status) {
       Swal.fire({
@@ -20,10 +21,10 @@ export default function Index() {
     const response = await axios.post('/api/add',
       comprador
     );
-    console.log(process.env.MERCADO_PAGO_ACCESS_TOKEN)
-  console.log(process.env.MERCADO_PAGO_PUBLIC_KEY)
-  console.log(process.env.MONGO_URI)
-  console.log(process.env.CURRENT_URL)
+
+    if(response) Swal.hideLoading()
+
+    console.log(response)
     const mp = new MercadoPago(process.env.MERCADO_PAGO_PUBLIC_KEY, {
       locale: 'pt-BR'
     });

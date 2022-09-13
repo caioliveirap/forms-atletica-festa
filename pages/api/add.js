@@ -12,12 +12,6 @@ mercadopago.configure({
  */
 export default async function addJob(req, res) {
   const db = await connectMongo()
-  console.log('reaching addJob')
-  console.log(process.env.MERCADO_PAGO_ACCESS_TOKEN)
-  console.log(process.env.MERCADO_PAGO_PUBLIC_KEY)
-  console.log(process.env.MONGO_URI)
-  console.log(process.env.CURRENT_URL)
-
 
   const save = await Compradores.create({
     ...req.body,
