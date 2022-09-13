@@ -49,6 +49,11 @@ export default async function addJob(req, res) {
       pending: process.env.CURRENT_URL,
       failure: process.env.CURRENT_URL
     },
+    "excluded_payment_types": [
+      {
+          "id": "ticket"
+      }
+  ],
     "auto_return": "approved"
   };
 
