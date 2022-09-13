@@ -21,7 +21,7 @@ export default async function addJob(req, res) {
     items: [
       {
         title: 'Ingresso Atlética - Lote 1',
-        unit_price: 50,
+        unit_price: 52.5,
         quantity: 1,
         currency_id: "BRL"
       }
