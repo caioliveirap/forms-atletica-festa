@@ -14,6 +14,7 @@ module.exports = {
       ...colors,
     },
     extend: {
+
       minHeight: {
         "screen-75": "75vh",
       },
@@ -69,6 +70,9 @@ module.exports = {
       },
       backgroundSize: {
         full: "100%",
+      },
+      backgroundImage: {
+        muroAtleticas: "url('/img/background-muro-atleticas.png')"
       },
     },
   },
