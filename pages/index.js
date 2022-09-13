@@ -9,6 +9,7 @@ export default function Index() {
   const sendPayment = async (comprador) => {
 
     Swal.showLoading()
+
     const validator = validate(comprador)
     if(!validator.status) {
       Swal.fire({
@@ -22,8 +23,7 @@ export default function Index() {
       comprador
     );
 
-    if(response) Swal.hideLoading()
-
+    Swal.close()
     console.log(response)
     const mp = new MercadoPago(process.env.MERCADO_PAGO_PUBLIC_KEY, {
       locale: 'pt-BR'
