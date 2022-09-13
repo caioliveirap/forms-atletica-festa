@@ -12,12 +12,10 @@ mercadopago.configure({
  */
 export default async function addJob(req, res) {
   const db = await connectMongo()
-
   const save = await Compradores.create({
     ...req.body,
     status: 'pending',
   })
-  console.log(save)
 
   let preference = {
     items: [
@@ -43,11 +41,14 @@ export default async function addJob(req, res) {
       pending: process.env.CURRENT_URL,
       failure: process.env.CURRENT_URL
     },
-    "excluded_payment_types": [
-      {
-          "id": "ticket"
-      }
-  ],
+    payment_methods: {
+      excluded_payment_types: [
+        {
+          id: "ticket"
+        }
+      ]
+    },
+    
     "auto_return": "approved"
   };
 

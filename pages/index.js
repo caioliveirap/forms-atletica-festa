@@ -24,7 +24,7 @@ export default function Index() {
     );
 
     Swal.close()
-    console.log(response)
+    
     const mp = new MercadoPago(process.env.MERCADO_PAGO_PUBLIC_KEY, {
       locale: 'pt-BR'
     });
