@@ -15,8 +15,6 @@ import axios from 'axios'
  */
 export default async function addJob(req, res) {
     try {
-        console.log(req.body)
-        // console.log(process.env.MERCADO_PAGO_ACCESS_TOKEN)
     const response = await axios.get(`https://api.mercadopago.com/v1/payments/${req.body.data.id}`,
     {
         headers: {
@@ -27,11 +25,6 @@ export default async function addJob(req, res) {
     if(response.data.status == "approved") {
         const db = await connectMongo()
         const up = await Compradores.findOneAndUpdate({_id: response.data.metadata._id}, {...response.data.metadata, status: "approved"}).exec()
-        
-        // const update = await Compradores.create({
-        //     ...req.body,
-        //     status: 'approved',
-        //   })
     }
     console.log(await response.data)
     } catch (error) {

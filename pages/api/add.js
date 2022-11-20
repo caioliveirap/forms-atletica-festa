@@ -57,7 +57,6 @@ export default async function addJob(req, res) {
       global.id = response.body.id;
       return await response
     }).catch(function (error) {
-      console.log(error);
     });
 
 
